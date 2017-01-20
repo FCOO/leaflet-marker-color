@@ -1,0 +1,94 @@
+/***********************************************
+	leaflet-marker-color.scss, 
+
+	(c) 2017, FCOO
+
+	https://github.com/FCOO/leaflet-marker-color
+	https://github.com/FCOO
+
+
+************************************************/
+//BOURBON - http://bourbon.io/
+@import "../bower_components/bourbon/app/assets/stylesheets/bourbon";
+
+//MODERNIZR-MIXIN - https://github.com/danielguillan/modernizr-mixin
+@import "../bower_components/modernizr-mixin/stylesheets/modernizr";
+
+//MATHSASS - https://github.com/terkel/mathsass
+@import "../bower_components/mathsass/dist/math";
+
+//leaflet-marker-color
+@font-face {
+    font-family: 'leaflet-marker-color';
+    src:  url('fonts/leaflet-marker-color.woff?1uhh06') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+$opacity      : 0.6;
+$opacity-hover: 0.9;
+
+.leaflet-marker-color {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family   : 'leaflet-marker-color' !important;
+    speak         : none;
+    font-style    : normal;
+    font-weight   : normal;
+    font-variant  : normal;
+    text-transform: none;
+    line-height   : 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    font-size:55px; 
+
+    height: 1em; 
+    width : 3/4 em;    
+    
+    
+    
+    //The border of the marker
+    .border {
+        &:before {
+//            margin-left: auto;
+            content    : "\e900";
+            color      : black;
+            opacity    : $opacity-hover;         
+        }
+    }
+
+    //The background of the marker
+    .background:before {
+        content: "\e901";
+        margin-left: -0.75em;
+        color: rgb(0, 100, 100);
+        opacity: $opacity;         
+    }
+
+    .icon {
+        position : relative;
+        left  : -1.25em;
+        top   : -0.75em;
+
+        width : 1em;
+        height: 1em;
+
+        color     : white;
+        font-size : 0.5em;
+        text-align: center;
+        padding   : 0;
+
+    }
+}
+
+.leaflet-marker-color.clicable:hover {
+    cursor: pointer;
+    .border:before {
+        opacity: $opacity-hover;         
+    }
+    .background:before {
+        opacity: $opacity-hover;         
+    }
+}
