@@ -1,38 +1,35 @@
 {
-    "name": "leaflet-marker-color",
-    "version": "0.0.0",
-    "homepage": "https://github.com/FCOO/leaflet-marker-color",
-    "authors": [
-        "Niels Holt"
-    ],
-    "description": "",
-    "main": [
-        "dist/leaflet-marker-color.js",
-        "dist/leaflet-marker-color.css"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/FCOO/leaflet-marker-color.git"
-    },
-    "dependencies": {
-        "jquery": "latest",
-        "leaflet": "latest",
-        "font-awesome": "fontawesome#^4.7.0"
-    },
-    "devDependencies": {
-        "bourbon": "latest",
-        "modernizr-mixin": "latest",
-        "mathsass": "latest"
-    },
-    "license": "MIT",
-    "ignore": [
-        "**/.*",
-        "node_modules",
-        "bower_components",
-        "test",
-        "tests"
-    ],
-    "moduleType": [
-        "es6"
-    ]
+  "name": "leaflet-marker-color",
+  "version": "1.0.0",
+  "homepage": "https://github.com/FCOO/leaflet-marker-color",
+  "authors": [
+    "Niels Holt"
+  ],
+  "description": "",
+  "main": [
+    "dist/leaflet-marker-color.js",
+    "dist/leaflet-marker-color.css"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/FCOO/leaflet-marker-color.git"
+  },
+  "dependencies": {
+    "jquery": "latest",
+    "leaflet": "latest",
+    "font-awesome": "fontawesome#^4.7.0",
+    "javascript-utilities": "fcoo/javascript-utilities#^1.0.0"
+  },
+  "devDependencies": {},
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "moduleType": [
+    "es6"
+  ]
 }

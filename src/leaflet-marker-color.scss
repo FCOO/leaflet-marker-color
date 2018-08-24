@@ -1,32 +1,24 @@
 /***********************************************
-	leaflet-marker-color.scss, 
+	leaflet-marker-color.scss,
 
 	(c) 2017, FCOO
 
 	https://github.com/FCOO/leaflet-marker-color
 	https://github.com/FCOO
-
-
 ************************************************/
-//BOURBON - http://bourbon.io/
-@import "../bower_components/bourbon/app/assets/stylesheets/bourbon";
-
-//MODERNIZR-MIXIN - https://github.com/danielguillan/modernizr-mixin
-@import "../bower_components/modernizr-mixin/stylesheets/modernizr";
-
-//MATHSASS - https://github.com/terkel/mathsass
-@import "../bower_components/mathsass/dist/math";
 
 //leaflet-marker-color
 @font-face {
     font-family: 'leaflet-marker-color';
-    src:  url('fonts/leaflet-marker-color.woff?1uhh06') format('woff');
+  src:  url('fonts/leaflet-marker-color.eot?1uhh06');
+  src:  url('fonts/leaflet-marker-color.eot?1uhh06#iefix') format('embedded-opentype'),
+        url('fonts/leaflet-marker-color.ttf?1uhh06') format('truetype'),
+        url('fonts/leaflet-marker-color.woff?1uhh06') format('woff'),
+        url('fonts/leaflet-marker-color.svg?1uhh06#icomoon') format('svg');
+
     font-weight: normal;
     font-style: normal;
 }
-
-$opacity      : 0.6;
-$opacity-hover: 0.9;
 
 .leaflet-marker-color {
     /* use !important to prevent issues with browser extensions that change fonts */
@@ -42,53 +34,78 @@ $opacity-hover: 0.9;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 
-    font-size:55px; 
+    height: 1em;
+    width : .75em;
 
-    height: 1em; 
-    width : 3/4 em;    
-    
-    
-    
-    //The border of the marker
-    .border {
+    //The background of the marker
+    .background {
+        position: relative;
+        left: 0;
+        top : 0;
+
         &:before {
-//            margin-left: auto;
-            content    : "\e900";
-            color      : black;
-            opacity    : $opacity-hover;         
+            content: "\e901";
+            color: inherit;
+            opacity: .9;
         }
     }
 
-    //The background of the marker
-    .background:before {
-        content: "\e901";
-        margin-left: -0.75em;
-        color: rgb(0, 100, 100);
-        opacity: $opacity;         
+    //The border of the marker
+    .border {
+        position: relative;
+        top : 0;
+        left: -.75em;
+        &:before {
+            content    : "\e900";
+            color      : #343a40;
+            opacity    : 1;
+        }
     }
 
     .icon {
+        display  : none;
         position : relative;
-        left  : -1.25em;
-        top   : -0.75em;
-
-        width : 1em;
+        left  :  0;
+        top   : -1.35em;
+        width : 0.75em;
         height: 1em;
 
         color     : white;
-        font-size : 0.5em;
+        text-align: center;
+        padding   : 0;
+        &:before {
+            font-size: .35em;
+        }
+    }
+
+    .text {
+        position : relative;
+        left  :  0;
+        top   : -2.25em;
+
+        width: 100%;
+        height: 1em;
+
+        color     : white;
         text-align: center;
         padding   : 0;
 
+        font-family: "Arial Narrow";
+        font-size: 0.35em;
+
     }
+
+    &.contain-icon {
+        .icon { display: block; }
+        .text { display: none;  }
+    }
+
+
+    //hover on marker
+    &.leaflet-interactive:hover {
+        .border:before     { color  : black; }
+        .background:before { opacity: 1;     }
+    }
+
 }
 
-.leaflet-marker-color.clicable:hover {
-    cursor: pointer;
-    .border:before {
-        opacity: $opacity-hover;         
-    }
-    .background:before {
-        opacity: $opacity-hover;         
-    }
-}
